@@ -1,13 +1,19 @@
 import React from 'react'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+// import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
-import Navbar from '../components/Navbar'
-import Home from '../components/Home'
-
-export default function AppContainer () {
+export default function AppContainer (props) {
   return (
-    <div>
-      <Navbar />
-      <Home />
-    </div>
+    <MuiThemeProvider>
+      <div>
+        {
+          props.children
+        }
+        <Footer />
+      </div>
+    </MuiThemeProvider>
   )
 }
